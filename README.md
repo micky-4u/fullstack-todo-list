@@ -44,4 +44,34 @@ We have **two networks** to enable communication between services safely:
 ### 🔹 Build the containers:
 
 ```bash
-docker-compose -f todo-app/fullstack-todo-list/docker-compose.yml build
+$ docker-compose -f docker-compose.yml build
+
+
+
+### 🔹 Testing Frontend:
+
+```bash
+http://localhost:8080/
+
+
+
+
+### 🔹 Testing backend:
+
+```bash
+http://localhost:3000/ 
+
+
+
+### 🔹 Testing Database:
+
+```bash
+$ docker exec -it mongodb bash
+
+
+
+### 🔹 stop the containers:
+
+```bash
+docker-compose -f docker-compose.yml down
+
