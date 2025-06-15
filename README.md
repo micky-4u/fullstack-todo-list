@@ -23,19 +23,19 @@ We have **two networks** to enable communication between services safely:
 
 ---
 
-## 🔹 File Locations 🔹
+## 🔹 Deliverable Files Location 🔹
 
 - **Docker Compose File**:  
-  `todo-app/fullstack-todo-list/docker-compose.yml`
+  `/docker-compose.yml`
 
 - **Frontend Dockerfile**:   
-  `todo-app/fullstack-todo-list/Frontend/frontend.Dockerfile`
+  `Frontend/frontend.Dockerfile`
 
 - **Backend Dockerfile**:   
-  `todo-app/fullstack-todo-list/Backend/backend.Dockerfile`
+  `Backend/backend.Dockerfile`
 
 - **Database Dockerfile**:   
-  `todo-app/fullstack-todo-list/Backend/DB/db.Dockerfile`
+  `Backend/DB/db.Dockerfile`
 
 ---
 
