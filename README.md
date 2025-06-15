@@ -1,40 +1,47 @@
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/62269745/174906065-7bb63e14-879a-4740-849c-0821697aeec2.png#gh-light-mode-only" width="40%">
-    <img src="https://user-images.githubusercontent.com/62269745/174906068-aad23112-20fe-4ec8-877f-3ee1d9ec0a69.png#gh-dark-mode-only" width="40%">
-</p>
+# Application Deployment with Docker Compose (Full Stack)
 
-# Full-Stack Todo List Application
+This application consists of **a frontend (React)**, **a backend (Express API)**, and **a MongoDB database**.  
+Docker Compose is used to deploy and connect these services together.
 
-This repository hosts a full-stack Todo List application designed to allow users to create, manage, and organize their tasks efficiently. The application features a React-based frontend and a Node.js backend, utilizing MongoDB for data persistence.
 
-## Technologies Used
+---
 
-- **Frontend**: React, Material-UI
-- **Backend**: Node.js, Express
-- **Database**: MongoDB
-- **Other Tools**: Vite, React Toastify, Lucide Icons
+## 🔹 Services 🔹
 
-## Project Structure
+- **Frontend** — React application (running on port 5173).
+- **Backend** — Express API (running on port 3000).
+- **Database** — MongoDB (running on port 27017).
 
-The project is divided into two main parts:
-- **Frontend**: Located in the `frontend/` directory with its own [README](frontend/README.md).
-- **Backend**: Located in the `backend/` directory with its own [README](backend/README.md).
+---
 
-## Features
+## 🔹 Networks 🔹
 
-- Create, view, update, and delete todo items.
-- Organize tasks with tags/categories.
-- Responsive user interface adaptable to different screen sizes.
-- Real-time updates without page reloads.
+We have **two networks** to enable communication between services safely:
 
-## Contributing
+- `todo-network-backend`: for **backend and MongoDB** communication.
+- `todo-network-frontend`: for **backend and frontend** communication.
 
-Contributions are welcome! See the specific README files in the `frontend/` and `backend/` directories for more details on contributing.
+---
 
-## Live Demo
+## 🔹 File Locations 🔹
 
-<h4 align="left">Live Preview is available at https://fullstack-todolist-1.onrender.com/</h4>
+- **Docker Compose File**:  
+  `todo-app/fullstack-todo-list/docker-compose.yml`
 
-## Snapshots
+- **Frontend Dockerfile**:   
+  `todo-app/fullstack-todo-list/Frontend/frontend.Dockerfile`
 
-<img src="./Frontend/src/assets/home-snapshot.png" alt="home page"/>
+- **Backend Dockerfile**:   
+  `todo-app/fullstack-todo-list/Backend/backend.Dockerfile`
+
+- **Database Dockerfile**:   
+  `todo-app/fullstack-todo-list/Backend/DB/db.Dockerfile`
+
+---
+
+## 🔹 Deployment instructions 🔹
+
+### 🔹 Build the containers:
+
+```bash
+docker-compose -f todo-app/fullstack-todo-list/docker-compose.yml build
