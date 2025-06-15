@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      dockerfile: frontend.Dockerfile
+      context: ./Frontend
+    ports:
+      - "8080:80"
+    networks:
+      - todo-network-frontend
+    # depends_on:
+    #   - backend
+
+
+      
+  backend:
+    build:
+      dockerfile: backend.Dockerfile
+      context: ./Backend
+    ports:
+      - "3000:3000"
+    networks:
+      - todo-network-backend
+      - todo-network-frontend
+    depends_on:
+      - mongodb
+  
+
+
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=admin
+    #   - MONGO_INITDB_ROOT_PASSWORD=admin123
+    networks:
+      -  todo-network-backend
+    restart: always
+
+
+
+networks:
+  todo-network-backend:
+    driver: bridge
+
+  todo-network-frontend:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local 
